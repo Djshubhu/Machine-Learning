@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommendations</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Recommendations for {{ movie_name }}:</h1>
+    <ul>
+        {% for movie in recommendations %}
+            <li><a href="#" onclick="searchMovie('{{ movie }}')">{{ movie }}</a></li>
+        {% endfor %}
+    </ul>
+
+    <script>
+        function searchMovie(movieName) {
+            var searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(movieName);
+            window.open(searchUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
